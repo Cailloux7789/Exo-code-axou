@@ -1,0 +1,61 @@
+<?php
+$notes = [
+  ['nom' => 'Alice', 'note' => 12],
+  ['nom' => 'Bob', 'note' => 8],
+  ['nom' => 'Charlie', 'note' => 15],
+  ['nom' => 'Dave', 'note' => 6],
+  ['nom' => 'Eve', 'note' => 17],
+  ['nom' => 'Frank', 'note' => 11],
+];
+
+function print_table($array)
+{
+  echo '<table>';
+  echo '<thead><tr><th>Nom</th><th>Note</th></tr></thead>';
+  echo '<tbody>';
+  foreach ($array as $student) {
+    echo '<tr><td>' . $student['nom'] . '</td><td>' . $student['note'] . '</td></tr>';
+  }
+  echo '</tbody>';
+  echo '<tfoot>';
+  echo '<th></th><th></th><th>' . number_format(print_average_note($array), 2) . '</th>';
+  echo '</tfoot>';
+  echo '</table>';
+}
+
+function print_average_note($array)
+{
+  $average = 0;
+  $count = count($array);
+  foreach ($array as $student) {
+    $average += $student['note'];
+  }
+  $average /= $count;
+  return $average;
+}
+
+function print_admis($array)
+{
+  $count = count($array);
+  $admis = 0;
+  foreach ($array as $student) {
+    if ($student['note'] >= 10) {
+      $admis++;
+    }
+  }
+  echo $admis . ' / ' . $count;
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice 3</title>
+</head>
+<body>
+  <?php print_table($notes); ?>
+  <p>Admis : <?php print_admis($notes); ?></p>
+</body>
+</html>

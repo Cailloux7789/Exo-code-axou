@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Formulaire</title>
+</head>
+<body>
+  <h1>Formulaire</h1>
+  <form method="post" action="validation.php">
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" required minlength="3" maxlength="20"><br><br>
+
+    <label for="email">Adresse e-mail :</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="message">Message :</label>
+    <textarea id="message" name="message" required maxlength="400"></textarea><br><br>
+
+    <input type="submit" value="Envoyer">
+  </form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<?php
+
+//Nom 3-20 caractères
+
+
+if (strlen($_POST['Nom'])>=3 
+&& strlen($_POST['Nom'])<21){
+    echo 'Nom OK';}
+else {
+    echo 'Nom pas OK';
+}
+
+//Mail
+
+if 
+(substr($_POST['mail'], -12) == '@univ-amu.fr' 
+|| substr($_POST['mail'], -16) == '@etu.univ-amu.fr') {
+    echo 'Adresse OK';}
+    $erreur = false;
+else { 
+    echo 'Adresse pas OK';}
+
+
+
+//Texte moins de 400 caractères
+
+if ($_POST['text']<400){
+    echo 'Caractères pas OK';}
+else {
+    echo 'Caractères OK';}
+
+
+?>
